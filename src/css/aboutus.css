@@ -1,0 +1,499 @@
+.about-hero img { max-height: 580px; object-fit: cover; }
+
+/* --- Global Font Styling --- */
+.irdkl-typography {
+  margin: 0;
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* MP Card & Name Tag — No card background */
+.about-mp-card {
+  position: relative;
+  max-width: 585px;
+  margin-bottom: 3rem;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.about-mp-img { width: 530px; border-radius: 10px; height: 439px; }
+.about-mp-name {
+    position: absolute; left: 445px; bottom: 1.2rem;
+    background: #fff; padding: 1.5rem 3rem;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+    font-weight: 700; font-size: 27px; white-space: nowrap;
+    z-index: 2;
+}
+
+/* Paragraph Text */
+.about-paragraph {
+    font-size: 19px;
+    text-align: justify;
+}
+
+.vision-paragraph {
+    font-size: 19px;
+    max-width: 338px;
+    text-align: justify;
+}
+
+.intro-paragraph {
+    width: 580px;
+    font-size: 19px;
+    text-align: justify;
+}
+.about-paragraph { width: 580px; margin-bottom: 1rem; }
+.abouttext { font-size: 35px; }
+
+/* Room Badge */
+.about-room-wrapper { max-width: 520px; margin-left: auto; position: relative; }
+.about-room-badge {
+    position: absolute; right: 15px; bottom: 0;
+    padding: 1rem 2.1rem; transform: translate(25%, 25%);
+    box-shadow: 8px 8px 15px rgba(0,0,0,0.4); background: #fff;
+    z-index: 2;
+}
+
+/* Vision & Mission Cards */
+.vision-custom, .mission-custom {
+    border-radius: 10px; padding: 2.5rem;
+    height: 395px; width: 100%; max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.vision-custom { background: #5E8D25; color: #fff; }
+.mission-custom { background: #5E8D25; color: #fff; }
+
+.o1, .vision-custom h3 {
+    font-size: 23px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.about-text1 {
+    margin-top: 35px;
+    margin-left: 60px;
+}
+
+.vm-large-icon { width: 55px; height: 55px; display: block; margin: 0 auto 1.5rem; }
+.color { color: #5E8D25; font-size: 35px; }
+
+.mission-custom ol {
+    font-size: 19px;
+    text-align: justify;
+    line-height: 1.7;
+    max-width: 390px;
+    padding-left: 1.5rem;
+    width: 100%;
+}
+
+.our-mission1 {
+    font-size: 19px;
+}
+
+/* ============================================================
+   320px - Extra Small Mobile (e.g. iPhone SE)
+   ============================================================ */
+@media (max-width: 359.98px) {
+    .about-hero img { max-height: 180px; }
+
+    .about-mp-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto 1.5rem;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    .about-mp-img { width: 100%; height: auto; max-width: 280px; }
+    .about-mp-name {
+        position: relative; left: 0; bottom: 0;
+        margin-top: -20px; font-size: 14px;
+        padding: 0.5rem 1rem; white-space: normal; text-align: center;
+    }
+
+    .about-text1 {
+        margin-top: 0.8rem;
+        margin-left: 0 !important;
+        padding: 0 12px;
+        width: 100%;
+    }
+    .intro-paragraph, .about-paragraph, .vision-paragraph {
+        font-size: 13px; width: 100%; padding: 0; text-align: justify;
+    }
+    .about-paragraph { width: 100%; }
+    .abouttext { font-size: 22px; }
+    .color { font-size: 22px; }
+    .o1, .vision-custom h3 { font-size: 18px; }
+    .vision-custom, .mission-custom { height: auto; min-height: 260px; max-width: 100%; padding: 1.2rem; }
+    .mission-custom ol { font-size: 13px; max-width: 100%; }
+    .vm-large-icon { width: 40px; height: 40px; }
+    .about-room-badge { right: 5px; transform: translate(10%, 10%); padding: 0.5rem 1rem; }
+    .about-room-badge .color { font-size: 20px; }
+    .about-room-text { font-size: 11px; }
+    .vm-row { gap: 1rem; flex-direction: column; align-items: center; }
+    .about-room-wrapper { margin: 1.5rem auto 0; }
+}
+
+/* ============================================================
+   360px - 479px Small Mobile
+   ============================================================ */
+@media (min-width: 360px) and (max-width: 479.98px) {
+    .about-hero img { max-height: 220px; }
+
+    .about-mp-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto 1.5rem;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    .about-mp-img { width: 100%; height: auto; max-width: 320px; }
+    .about-mp-name {
+        position: relative; left: 0; bottom: 0;
+        margin-top: -25px; font-size: 15px;
+        padding: 0.6rem 1.2rem; white-space: normal; text-align: center; width: 85%;
+    }
+
+    .about-text1 {
+        margin-top: 1rem;
+        margin-left: 0 !important;
+        padding: 0 12px;
+        width: 100%;
+    }
+    .intro-paragraph, .about-paragraph, .vision-paragraph {
+        font-size: 14px; width: 100%; padding: 0; text-align: justify;
+    }
+    .about-paragraph { width: 100%; }
+    .abouttext { font-size: 24px; }
+    .color { font-size: 24px; }
+    .o1, .vision-custom h3 { font-size: 20px; }
+    .vision-custom, .mission-custom { height: auto; min-height: 280px; max-width: 100%; padding: 1.5rem; }
+    .mission-custom ol { font-size: 14px; max-width: 100%; }
+    .vm-large-icon { width: 42px; height: 42px; }
+    .about-room-badge { right: 8px; transform: translate(12%, 12%); padding: 0.6rem 1.2rem; }
+    .about-room-badge .color { font-size: 22px; }
+    .about-room-text { font-size: 11px; }
+    .vm-row { gap: 1.2rem; flex-direction: column; align-items: center; }
+    .about-room-wrapper { margin: 1.5rem auto 0; }
+}
+
+/* ============================================================
+   480px - 575px Large Mobile / Small Tablet
+   ============================================================ */
+@media (min-width: 480px) and (max-width: 575.98px) {
+    .about-hero img { max-height: 280px; }
+
+    .about-mp-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto 2rem;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    .about-mp-img { width: 100%; height: auto; max-width: 400px; }
+    .about-mp-name {
+        position: relative; left: 0; bottom: 0;
+        margin-top: -28px; font-size: 16px;
+        padding: 0.7rem 1.4rem; white-space: normal; text-align: center;
+    }
+
+    .about-text1 {
+        margin-top: 1.2rem;
+        margin-left: 0 !important;
+        padding: 0 12px;
+        width: 100%;
+    }
+    .intro-paragraph, .about-paragraph, .vision-paragraph {
+        font-size: 15px; width: 100%; padding: 0; text-align: justify;
+    }
+    .about-paragraph { width: 100%; }
+    .abouttext { font-size: 26px; }
+    .color { font-size: 26px; }
+    .o1, .vision-custom h3 { font-size: 21px; }
+    .vision-custom, .mission-custom { height: auto; min-height: 300px; max-width: 100%; padding: 1.8rem; }
+    .mission-custom ol { font-size: 15px; max-width: 100%; }
+    .vm-large-icon { width: 45px; height: 45px; }
+    .about-room-badge { right: 10px; transform: translate(14%, 14%); }
+    .vm-row { gap: 1.3rem; flex-direction: column; align-items: center; }
+    .about-room-wrapper { margin: 1.8rem auto 0; }
+}
+
+/* ============================================================
+   576px - 767px Tablet Portrait
+   ============================================================ */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .about-hero img { max-height: 340px; }
+
+    .about-mp-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto 2rem;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    .about-mp-img { width: 100%; height: auto; max-width: 440px; }
+    .about-mp-name {
+        position: relative; left: 0; bottom: 0;
+        margin-top: -30px; font-size: 18px;
+        padding: 0.8rem 1.5rem; white-space: normal; text-align: center;
+    }
+
+    .about-text1 {
+        margin-top: 1.5rem;
+        margin-left: 0 !important;
+        padding: 0 12px;
+        width: 100%;
+    }
+    .intro-paragraph, .about-paragraph, .vision-paragraph {
+        font-size: 15px; width: 100%; padding: 0; text-align: justify;
+    }
+    .about-paragraph { width: 100%; }
+    .abouttext { font-size: 28px; }
+    .color { font-size: 28px; }
+    .o1, .vision-custom h3 { font-size: 21px; }
+    .vision-custom, .mission-custom { height: auto; min-height: 310px; max-width: 100%; padding: 2rem; }
+    .mission-custom ol { font-size: 15px; max-width: 100%; }
+    .vm-large-icon { width: 48px; height: 48px; }
+    .about-room-badge { right: 10px; transform: translate(15%, 15%); }
+    .vm-row { gap: 1.4rem; flex-direction: column; align-items: center; }
+    .about-room-wrapper { margin: 2rem auto 0; }
+}
+
+/* ============================================================
+   768px - 991px Tablet Landscape / Small Laptop
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .about-hero img { max-height: 420px; }
+
+    .about-mp-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto 2rem;
+        padding-top: 1rem;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    .about-mp-img { width: 100%; height: auto; max-width: 480px; }
+    .about-mp-name {
+        position: relative; left: 0; bottom: 0;
+        margin-top: -30px; font-size: 20px;
+        padding: 0.8rem 1.5rem; white-space: normal; text-align: center;
+    }
+
+    .about-text1 {
+        margin-top: 1.5rem;
+        margin-left: 0 !important;
+        padding: 0 12px;
+        width: 100%;
+        max-width: 700px;
+    }
+    .intro-paragraph, .about-paragraph, .vision-paragraph {
+        font-size: 16px; width: 100%; padding: 0; text-align: justify;
+    }
+    .about-paragraph { width: 100%; }
+    .abouttext { font-size: 30px; }
+    .color { font-size: 30px; }
+    .o1, .vision-custom h3 { font-size: 22px; }
+    .vision-custom, .mission-custom { height: auto; min-height: 320px; max-width: 100%; }
+    .mission-custom ol { font-size: 16px; max-width: 100%; }
+    .vm-large-icon { width: 50px; height: 50px; }
+    .about-room-badge { right: 10px; transform: translate(15%, 15%); }
+    .vm-row { gap: 1.5rem; flex-direction: column; align-items: center; }
+    .about-room-wrapper { margin: 2rem auto 0; }
+}
+
+/* ============================================================
+   992px - 1199px iPad Pro / Small Laptop
+   ============================================================ */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .about-hero img { max-height: 480px; }
+    .about-mp-name {
+        left: 300px;
+        font-size: 22px;
+        padding: 1rem 2rem;
+    }
+    .about-mp-img { width: 100%; height: auto; }
+    .intro-paragraph {
+        width: 100%;
+        font-size: 14px;
+        margin-bottom: 0.8rem;
+    }
+    .about-paragraph { width: 100%; font-size: 14px; margin-bottom: 0.8rem; }
+    .abouttext { font-size: 28px; }
+    .color { font-size: 28px; }
+    .o1, .vision-custom h3 { font-size: 20px; }
+    .vision-custom, .mission-custom {
+        height: auto;
+        min-height: 350px;
+        padding: 1.5rem;
+    }
+    .mission-custom ol { font-size: 14px; line-height: 1.5; }
+    .vision-paragraph { font-size: 14px; }
+}
+
+/* Fix for Short Screens (e.g. 1024x600) */
+@media (max-height: 700px) {
+    .about-hero img { max-height: 650px; }
+}
+
+/* ============================================================
+   1200px → 2500px  Fluid scaling via clamp()
+   ============================================================ */
+@media (min-width: 1200px) and (max-width: 2500px) {
+
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: clamp(1200px, 78vw, 1900px);
+    }
+
+    .about-hero img {
+        max-height: clamp(520px, 40vw, 820px);
+    }
+
+    .about-mp-img {
+        width: clamp(520px, 36vw, 720px);
+        height: clamp(439px, 30vw, 596px);
+    }
+
+    .about-mp-name {
+        left: clamp(445px, 30vw, 600px);
+        font-size: clamp(27px, 1.55vw, 38px);
+        padding: clamp(1.5rem, 1vw, 2.2rem) clamp(3rem, 2vw, 4.5rem);
+    }
+
+    .intro-paragraph,
+    .about-paragraph {
+        font-size: clamp(19px, 1.1vw, 26px);
+        width: clamp(580px, 40vw, 860px);
+    }
+    .about-paragraph { margin-bottom: 1rem; }
+
+    .vision-paragraph {
+        font-size: clamp(19px, 1.1vw, 26px);
+        max-width: clamp(338px, 22vw, 520px);
+    }
+
+    .abouttext {
+        font-size: clamp(35px, 2vw, 50px);
+    }
+    .color {
+        font-size: clamp(35px, 2vw, 50px);
+    }
+
+    .o1, .vision-custom h3 {
+        font-size: clamp(23px, 1.35vw, 32px);
+    }
+
+    .vision-custom, .mission-custom {
+        max-width: clamp(550px, 33vw, 800px);
+        height: clamp(395px, 26vw, 560px);
+        padding: clamp(2rem, 1.4vw, 3.2rem);
+    }
+
+    .mission-custom ol {
+        font-size: clamp(19px, 1.1vw, 26px);
+        max-width: clamp(390px, 26vw, 620px);
+    }
+
+    .our-mission1 {
+        font-size: clamp(19px, 1.1vw, 26px);
+    }
+
+    .vm-large-icon {
+        width: clamp(55px, 3vw, 80px);
+        height: clamp(55px, 3vw, 80px);
+    }
+
+    .about-room-wrapper {
+        max-width: clamp(520px, 35vw, 760px);
+    }
+}
+
+/* ============================================================
+   1500px - 2000px Large Desktop - Section 2 Alignment Fix
+   ============================================================ */
+@media (min-width: 1500px) and (max-width: 2000px) {
+    .about-text1 {
+        margin-top: 60px;
+        margin-left: 7rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+/* ============================================================
+   2501px+ — capped values
+   ============================================================ */
+@media (min-width: 2501px) and (max-width: 3839.98px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1900px;
+    }
+    .about-hero img { max-height: 820px; }
+    .about-mp-img { width: 720px; height: 596px; }
+    .about-mp-name { left: 600px; font-size: 38px; padding: 2.2rem 4.5rem; }
+    .intro-paragraph, .about-paragraph { font-size: 26px; width: 860px; }
+    .vision-paragraph { font-size: 26px; max-width: 520px; margin-left: 60px; }
+    .abouttext { font-size: 50px; }
+    .color { font-size: 50px; }
+    .o1, .vision-custom h3 { font-size: 32px; }
+    .vision-custom, .mission-custom { max-width: 800px; height: 560px; }
+    .mission-custom ol { font-size: 26px; max-width: 620px; }
+    .our-mission1 { font-size: 26px; }
+    .vm-large-icon { width: 80px; height: 80px; }
+    .about-room-wrapper { max-width: 760px; }
+}
+
+/* ============================================================
+   3840px 4K Ultra Wide
+   ============================================================ */
+@media (min-width: 3840px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 2400px;
+    }
+    .intro-paragraph, .about-paragraph {
+        font-size: 32px;
+        width: 1050px;
+    }
+    .vision-paragraph {
+        font-size: 32px;
+        max-width: 620px;
+        margin-left: 80px;
+    }
+    .mission-custom ol {
+        font-size: 32px;
+        max-width: 700px;
+    }
+    .o1, .vision-custom h3 { font-size: 40px; }
+    .our-mission1 { font-size: 34px; }
+    .vision-custom, .mission-custom {
+        max-width: 960px;
+        height: 640px;
+    }
+    .about-mp-name {
+        left: 760px;
+        font-size: 44px;
+        padding: 2.5rem 5rem;
+    }
+    .about-mp-img {
+        width: 860px;
+        height: 710px;
+    }
+    .abouttext { font-size: 58px; }
+    .color { font-size: 58px; }
+    .about-hero img { max-height: 1000px; }
+    .vm-large-icon { width: 80px; height: 80px; }
+    .about-room-badge { padding: 1.5rem 3rem; }
+}

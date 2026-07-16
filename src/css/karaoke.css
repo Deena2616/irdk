@@ -1,0 +1,469 @@
+/* --- GLOBAL TOKENS --- */
+
+:root {
+
+  --karaoke-green: #5d8d25;
+
+  --karaoke-black: #000000;
+
+  --karaoke-white: #ffffff;
+
+  --font-palatino: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+
+  --bg-dark-blue: #0b0b21;
+
+}
+
+
+
+.karaoke-page-wrapper {
+
+  background-color: var(--karaoke-black);
+
+  color: var(--karaoke-white);
+
+  font-family: var(--font-palatino);
+
+  overflow-x: hidden;
+
+  scroll-behavior: smooth;
+
+}
+
+
+
+/* --- SECTION 1: HERO & 3D CAROUSEL --- */
+
+.hero-section {
+
+  position: relative;
+
+  padding-top: 120px; 
+
+  padding-bottom: 80px;
+
+  overflow: hidden;
+
+  perspective: 2000px;
+
+}
+
+
+
+.bg-slide {
+
+  position: absolute; 
+
+  inset: 0; 
+
+  background-size: cover;
+
+  background-position: center; 
+
+  opacity: 0; 
+
+  transition: opacity 1.5s ease-in-out;
+
+}
+
+
+
+.bg-slide.active { opacity: 1; }
+
+
+
+.bg-overlay { 
+
+  position: absolute; 
+
+  inset: 0; 
+
+  background: rgba(0,0,0,0.6); 
+
+  backdrop-filter: blur(3px); 
+
+  z-index: 1; 
+
+}
+
+
+
+.content-container { 
+
+  position: relative; 
+
+  z-index: 10; 
+
+  width: 100%; 
+
+}
+
+
+
+.hero-title { 
+
+  font-size: clamp(1.8rem, 6vw, 2.5rem); 
+
+  font-weight: 400; 
+
+  text-transform: uppercase; 
+
+  margin-bottom: 12px; 
+
+}
+
+
+
+.hero-subtitle { 
+
+  font-size: clamp(0.9rem, 2vw, 1.1rem); 
+
+  max-width: 800px; 
+
+  margin: 0 auto 50px; 
+
+  opacity: 0.8; 
+
+}
+
+
+
+/* --- CAROUSEL ANIMATION FIX --- */
+
+.carousel-stage {
+
+  position: relative; 
+
+  height: 400px; 
+
+  width: 100%;
+
+  display: flex; 
+
+  align-items: center; 
+
+  justify-content: center;
+
+  transform-style: preserve-3d;
+
+}
+
+
+
+.carousel-card {
+
+  position: absolute; 
+
+  width: 200px; 
+
+  height: 250px;
+
+  /* Smooth movement for all properties */
+
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Default State: Hidden deep in the background */
+
+  opacity: 0;
+
+  transform: translateZ(-500px) translateX(0) scale(0);
+
+  z-index: 0;
+
+}
+
+
+
+.card-inner img {
+
+  width: 100%; 
+
+  height: 100%; 
+
+  object-fit: cover;
+
+  border-radius: 15px;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+
+}
+
+
+
+/* THE CAROUSEL LOOP LOGIC 
+
+   To loop correctly, 'Hidden' sits behind 'Active'.
+
+   Prev moves to Hidden (goes back).
+
+   Hidden moves to Next (comes forward).
+
+*/
+
+
+
+/* 1. ACTIVE: Front and Center */
+
+.carousel-card.active { 
+
+  opacity: 1; 
+
+  z-index: 100;
+
+  transform: translateX(0) translateZ(100px) scale(1.2); 
+
+}
+
+
+
+/* 2. PREV: Left and slightly back */
+
+.carousel-card.prev { 
+
+  opacity: 0.6; 
+
+  z-index: 50;
+
+  transform: translateX(-280px) translateZ(-100px) scale(0.9) rotateY(25deg); 
+
+}
+
+
+
+/* 3. NEXT: Right and slightly back */
+
+.carousel-card.next { 
+
+  opacity: 0.6; 
+
+  z-index: 50;
+
+  transform: translateX(280px) translateZ(-100px) scale(0.9) rotateY(-25deg); 
+
+}
+
+
+
+/* 4. HIDDEN: Center and FAR back */
+
+/* This makes it pass 'behind' the active card to complete the loop */
+
+.carousel-card.hidden {
+
+  opacity: 0;
+
+  z-index: 0;
+
+  transform: translateX(0) translateZ(-400px) scale(0.5);
+
+}
+
+
+
+
+
+/* --- SECTION 2: FUN & FESTIVITIES --- */
+
+.festivities-section {
+
+  position: relative; 
+
+  width: 100%; 
+
+  min-height: 100vh; 
+
+  padding: 0px 0 15px 0; 
+
+  background-color: var(--bg-dark-blue); 
+
+  border-top: 1px solid var(--karaoke-white);
+
+  display: flex; 
+
+  align-items: flex-start; 
+
+  overflow: hidden;
+
+}
+
+
+
+.festivities-section .container {
+
+  margin-top: 20px; 
+
+}
+
+
+
+.section-title { font-size: clamp(1.8rem, 5vw, 2.6rem); margin-bottom: 10px; }
+
+.section-subtitle { font-size: clamp(1.4rem, 4vw, 2rem); color: white; margin-bottom: 25px; }
+
+.section-desc { font-size: clamp(1rem, 2.5vw, 1.25rem); max-width: 600px; line-height: 1.5; margin-bottom: 40px; }
+
+
+
+/* Entry Animation Initial States */
+
+.animate-left { opacity: 0; transform: translateX(-80px); transition: all 1s ease-out; }
+
+.animate-right { opacity: 0; transform: translateX(80px); transition: all 1s ease-out; }
+
+
+
+/* --- POSTER ANIMATION FIX --- */
+
+/* Changed to pure translate from bottom (100px) to top (0) */
+
+.mini-poster { 
+
+  flex: 0 0 auto;
+
+  width: 140px; 
+
+  height: 175px; 
+
+  border: 1px solid white; 
+
+  border-radius: 12px; 
+
+  overflow: hidden;
+
+  
+
+  /* Initial State: Invisible and pushed down */
+
+  opacity: 0;
+
+  transform: translateY(100px); /* Pushed down by 100px */
+
+  
+
+  transition: all 0.8s ease-out;
+
+}
+
+
+
+.poster-horizontal-grid { display: flex; gap: 12px; flex-wrap: nowrap; }
+
+.mini-poster img { width: 100%; height: 100%; object-fit: cover; }
+
+
+
+/* --- TRIGGER CLASSES (Via Intersection Observer) --- */
+
+.festivities-section.in-view .animate-left { opacity: 1; transform: translateX(0); }
+
+.festivities-section.in-view .animate-right { opacity: 1; transform: translateX(0); transition-delay: 0.2s; }
+
+
+
+/* Posters animate up one by one */
+
+.festivities-section.in-view .mini-poster:nth-child(1) { 
+
+  opacity: 1; 
+
+  transform: translateY(0); /* Moves to original position */
+
+  transition-delay: 0.4s; 
+
+}
+
+.festivities-section.in-view .mini-poster:nth-child(2) { 
+
+  opacity: 1; 
+
+  transform: translateY(0); 
+
+  transition-delay: 0.6s; 
+
+}
+
+.festivities-section.in-view .mini-poster:nth-child(3) { 
+
+  opacity: 1; 
+
+  transform: translateY(0); 
+
+  transition-delay: 0.8s; 
+
+}
+
+
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+@media (min-width: 2500px) {
+
+  .hero-title { font-size: 5rem; }
+
+  .carousel-stage { height: 700px; }
+
+  .carousel-card { width: 450px; height: 550px; }
+
+  /* Scaled positions for huge screens */
+
+  .carousel-card.prev { transform: translateX(-750px) translateZ(-100px) rotateY(25deg); }
+
+  .carousel-card.next { transform: translateX(750px) translateZ(-100px) rotateY(-25deg); }
+
+  .carousel-card.hidden { transform: translateX(0) translateZ(-800px); }
+
+
+
+  .section-title { font-size: 5.5rem; }
+
+  .section-subtitle { font-size: 4rem; }
+
+  .section-desc { font-size: 2.5rem; max-width: 1200px; }
+
+  .mini-poster { width: 300px; height: 380px; }
+
+  .poster-horizontal-grid { gap: 30px; }
+
+}
+
+
+
+@media (min-width: 1440px) and (max-width: 2499px) {
+
+  .carousel-card.prev { transform: translateX(-400px) translateZ(-100px) rotateY(25deg); }
+
+  .carousel-card.next { transform: translateX(400px) translateZ(-100px) rotateY(-25deg); }
+
+  .mini-poster { width: 170px; height: 215px; }
+
+}
+
+
+
+@media (max-width: 768px) {
+
+  .carousel-stage { height: 300px; }
+
+  .carousel-card { width: 130px; height: 165px; }
+
+  
+
+  /* Adjusted for mobile width */
+
+  .carousel-card.active { transform: translateX(0) translateZ(50px) scale(1.1); }
+
+  .carousel-card.prev { transform: translateX(-100px) translateZ(-50px) rotateY(15deg) scale(0.9); }
+
+  .carousel-card.next { transform: translateX(100px) translateZ(-50px) rotateY(-15deg) scale(0.9); }
+
+  
+
+  .poster-horizontal-grid { overflow-x: auto; padding-bottom: 10px; }
+
+  .mini-poster { width: 110px; height: 140px; }
+
+  
+
+  .animate-left, .animate-right { transform: translateY(40px) translateX(0); }
+
+}

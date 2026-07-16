@@ -1,0 +1,635 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ================================================================
+   GLOBAL
+   ================================================================ */
+.dining-page {
+  font-family: 'Palatino Linotype', 'Libre Baskerville', serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  background: #fff;
+}
+
+.kishore { text-align: left; }
+
+/* ================================================================
+   ANIMATIONS
+   ================================================================ */
+.animate-on-scroll {
+  opacity: 0;
+  transition: opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.animate-on-scroll.animate-in { opacity: 1; }
+
+.slide-up { transform: translateY(60px); }
+.slide-up.animate-in { transform: translateY(0); }
+
+.slide-left { transform: translateX(-80px); }
+.slide-left.animate-in { transform: translateX(0); }
+
+.slide-right { transform: translateX(80px); }
+
+/* ================================================================
+   FLOATING DECOR
+   ================================================================ */
+.float-wrapper {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  pointer-events: none;
+  z-index: 1;
+  animation: floatRealistic 3.6s ease-in-out infinite;
+}
+
+.float-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: floatRealistic 3.6s ease-in-out infinite,
+             breatheWithFloat 3.6s ease-in-out infinite;
+}
+
+.float-shadow {
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 54%;
+  height: 20px;
+  background: radial-gradient(ellipse at center,
+    rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.30) 65%, transparent 100%);
+  border-radius: 50%;
+  filter: blur(12px);
+  opacity: 0.90;
+  animation: shadowGrow 3.6s ease-in-out infinite;
+}
+
+@keyframes floatRealistic {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-24px); }
+}
+@keyframes breatheWithFloat {
+  0%, 100% { transform: scale(1.00); }
+  50%       { transform: scale(1.08); }
+}
+@keyframes shadowGrow {
+  0%, 100% { width: 40%; height: 22px; opacity: 0.75; transform: translateX(-50%) scale(1); }
+  50%       { width: 20%; height: 22px; opacity: 1.0;  transform: translateX(-50%) scale(1.24); }
+}
+
+/* ================================================================
+   SHOP CARDS
+   ================================================================ */
+.new-shop {
+  will-change: transform, opacity;
+  perspective: 1500px;
+  transform-style: preserve-3d;
+  max-width: 320px;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(200px) rotateY(-360deg);
+}
+.new-shop.animate-in {
+  animation: slowFullSpinRise 2.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+@keyframes slowFullSpinRise {
+  0%   { opacity: 0; transform: translateY(200px) rotateY(-360deg); }
+  100% { opacity: 1; transform: translateY(0)     rotateY(0deg); }
+}
+
+.shop-card {
+  padding: 28px 24px;
+  min-height: 420px;
+  border-radius: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e8e8e8;
+  background: #F4F4F4;
+}
+
+.logo-wrapper  { height: 120px; }
+.shop-logo     { max-width: 160px; max-height: 120px; object-fit: contain; }
+.card-title    { font-size: 22px; }
+.card-desc     { font-size: 15px; }
+.btn-store     { width: 140px; height: 36px; font-size: 14px; background-color: #5e8d25; border-color: #5e8d25; }
+
+/* ================================================================
+   MENU CARDS
+   ================================================================ */
+.menu-card {
+  will-change: transform, opacity;
+  height: 420px;
+  max-width: 320px;
+  overflow: hidden;
+}
+.menu-card.slide-left-to-right { opacity: 0; transform: translateX(-180px); }
+.menu-card.slide-right-to-left { opacity: 0; transform: translateX(180px); }
+.menu-card.animate-in {
+  opacity: 1;
+  border-radius: 20px;
+  transform: translateX(0) !important;
+  transition: opacity 1.3s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.menu-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.menu-front, .menu-back {
+  backface-visibility: hidden;
+  position: absolute;
+  inset: 0;
+}
+.menu-front {
+  z-index: 2;
+  transform: rotateY(0);
+  border: none;
+  border-radius: 21px;
+  width: 100%;
+}
+.menu-back { transform: rotateY(180deg); }
+
+.menu-img {
+  width: 100%;
+  border-radius: 10px;
+  height: 100%;
+  background: linear-gradient(180deg,
+    rgba(190,190,190,0.6) 41%,
+    rgba(0,0,0,0.7) 75%,
+    rgba(26,26,26,0.9) 182%),
+    url('../assets/Supermarket.jpg') center/cover no-repeat;
+}
+
+.shop-placeholder {
+  font-size: 42px;
+  color: rgba(160,160,160,0.18);
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  pointer-events: none;
+}
+
+/* ================================================================
+   BANNER / HERO
+   ================================================================ */
+:root { --nav-h: 130px; }
+
+.banner-section {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - var(--nav-h));
+  height: calc(100dvh - var(--nav-h));
+  min-height: 300px;
+  overflow: hidden;
+  margin-left: calc(-50vw + 50%);
+  left: 0;
+}
+
+.banner-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.banner-overlay {
+  position: absolute;
+  bottom: 8%;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  z-index: 10;
+  width: 100%;
+}
+
+.banner-title {
+  font-family: 'Palatino Linotype', serif;
+  font-size: 41px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.85);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.banner-subtitle {
+  font-family: 'Palatino Linotype', serif;
+  font-size: 41px;
+  font-weight: 400;
+  margin-top: 0;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.85);
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* ================================================================
+   CONTENT SECTIONS
+   ================================================================ */
+.dine-section         { padding: 60px 0 20px ; }
+.dine-text            { max-width: 38rem; width: 100%; }
+.section-heading      { font-size: 36px; color: #6B8E23; margin-bottom: 28px; }
+.section-text         { font-size: 17px; margin-bottom: 25px; max-width: 100%; width: 100%; color: #333; line-height: 1.6; }
+
+.brand-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  overflow: hidden;
+  background: #FFF;
+  margin-left: -8px;
+}
+.brand-circle:first-child  { margin-left: 0; }
+.brand-separator  { width: 1px; height: 24px; background-color: #000; margin: 0 12px; }
+.feature-icon     { width: 16px; height: 16px; margin-right: 8px; }
+.brands-count     { font-size: 18px; font-weight: 500; margin-left: 12px; }
+
+.explore-section      { padding: 30px 0 80px; position: relative; }
+.section-heading-lg   { font-size: 40px; color: #6B8E23; margin-bottom: 30px; }
+.section-desc         { font-size: 25px; max-width: 680px; }
+.menu-section         { padding: 10px 0 80px; }
+.menu-desc            { font-size: 23px; max-width: 870px; }
+.menu-title           { font-size: 23px; }
+.btn-store-small      { width: 145px; height: 30px; font-size: 14px; background-color: #5e8d25; border-color: #5e8d25; }
+.features-grid        { line-height: 2.2; font-size: 13px; margin-top: 25px; }
+.brand-logos-container { margin-bottom: 25px; }
+.left-decor           { left: -90px;   top: -5%; }
+.right-decor          { right: -110px; top: -10%; }
+
+/* ================================================================
+   RESPONSIVE BREAKPOINTS
+   ================================================================ */
+
+/* ── 4K ≥ 2560px ── */
+@media (min-width: 2560px) {
+  :root                { --nav-h: 140px; }
+  .banner-title        { font-size: 80px; }
+  .banner-subtitle     { font-size: 56px; }
+  .banner-overlay      { bottom: 10%; left: 5%; }
+  .section-heading-lg  { font-size: 56px; }
+  .section-desc        { font-size: 30px; max-width: 900px; }
+  .menu-desc           { font-size: 28px; }
+  .section-heading     { font-size: 48px; }
+  .section-text        { font-size: 22px; width: auto; }
+}
+
+/* ── Large desktops 1440–2559px ── */
+@media (min-width: 1440px) and (max-width: 2559px) {
+  :root                { --nav-h: 135px; }
+  .banner-title        { font-size: 64px; }
+  .banner-subtitle     { font-size: 46px; }
+  .banner-overlay      { bottom: 9%; left: 4.5%; }
+  .section-heading-lg  { font-size: 48px; }
+  .section-desc        { font-size: 28px; }
+}
+
+/* ── Standard desktops 1200–1439px ── */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  :root                { --nav-h: 130px; }
+  .banner-title        { font-size: 52px; }
+  .banner-subtitle     { font-size: 38px; }
+  .banner-overlay      { bottom: 8%; left: 4%; }
+  .slide-right.animate-in { width: 100%; }
+}
+
+/* ── Small desktops 993–1199px ── */
+@media (min-width: 993px) and (max-width: 1199px) {
+  :root                { --nav-h: 120px; }
+  .banner-title        { font-size: 44px; }
+  .banner-subtitle     { font-size: 30px; }
+  .banner-overlay      { bottom: 8%; left: 4%; }
+  .slide-right.animate-in { width: 100%; }
+}
+
+/* ── Tablets landscape 769–992px ── */
+@media (min-width: 769px) and (max-width: 992px) {
+  :root                { --nav-h: 110px; }
+  .banner-title        { font-size: 38px; }
+  .banner-subtitle     { font-size: 26px; }
+  .banner-overlay      { bottom: 7%; left: 3.5%; }
+  .left-decor,
+  .right-decor         { display: none; }
+  .section-heading     { font-size: 32px; }
+  .section-heading-lg  { font-size: 36px; }
+  .section-desc        { font-size: 20px; }
+  .menu-desc           { font-size: 18px; }
+  .menu-card           { margin: 0 auto; }
+  .slide-right.animate-in { width: 100%; }
+  .dine-text           { max-width: 100%; }
+  .dine-section        { padding: 48px 0 20px; }
+  .card-title          { font-size: 20px; }
+  .card-desc           { font-size: 14px; }
+}
+
+/* ================================================================
+   MOBILE — ALL screens < 769px
+   Full single-column responsive layout
+   ================================================================ */
+
+/* ── Large mobile 577–768px ── */
+@media (min-width: 577px) and (max-width: 768px) {
+  :root                { --nav-h: 175px; }
+  .banner-overlay      { bottom: 6%; left: 20px; }
+  .banner-title        { font-size: 28px; }
+  .banner-subtitle     { font-size: 20px; }
+  .left-decor,
+  .right-decor         { display: none; }
+  /* Hover effects removed */
+  .menu-card.flipped .menu-inner { transform: rotateY(180deg); }
+  .menu-card           { margin: 0 auto; width: 100%; max-width: 100%; }
+  .slide-right.animate-in { width: 100%; }
+  .section-text        { font-size: 15px; }
+  .dine-text           { max-width: 100%; padding: 0 15px; }
+  .section-heading     { font-size: 28px; }
+  .section-heading-lg  { font-size: 30px; }
+  .section-desc        { font-size: 17px; padding: 0 15px; }
+  .menu-desc           { font-size: 15px; padding: 0 15px; }
+  .dine-section        { padding: 40px 0 20px; }
+  .dine-image img      { width: 100%; height: auto; }
+  .brand-circle        { width: 32px; height: 32px; }
+  .brands-count        { font-size: 14px; margin-left: 8px; }
+  .features-grid       { font-size: 12px; line-height: 2; }
+  .feature-item        { margin-bottom: 8px; }
+  .shop-card           { padding: 22px 18px; min-height: 400px; }
+  .card-title          { font-size: 20px; }
+  .card-desc           { font-size: 14px; }
+  .explore-section     { padding: 20px 0 60px; }
+  .menu-section        { padding: 10px 0 60px; }
+}
+
+/* ── Mobile 431–576px ── */
+@media (min-width: 431px) and (max-width: 576px) {
+  :root                { --nav-h: 185px; }
+  .banner-overlay      { bottom: 5%; left: 16px; }
+  .banner-title        { font-size: 24px; }
+  .banner-subtitle     { font-size: 17px; }
+  .left-decor,
+  .right-decor         { display: none; }
+  .section-heading     { font-size: 22px; }
+  .section-heading-lg  { font-size: 26px; }
+  .section-desc        { font-size: 15px; padding: 0 10px; }
+  .menu-desc           { font-size: 14px; padding: 0 10px; }
+  .menu-card           { margin: 0 auto; max-width: 100%; width: 100%; }
+  .section-text        { font-size: 14px; }
+  .card-title          { font-size: 18px; }
+  .card-desc           { font-size: 13px; }
+  .shop-card           { padding: 20px 16px; min-height: 380px; }
+  .brand-circle        { width: 28px; height: 28px; }
+  .brands-count        { font-size: 13px; }
+  .menu-title          { font-size: 18px; }
+  .shop-placeholder    { font-size: 28px; }
+  .dine-section        { padding: 32px 0 16px; }
+  .explore-section     { padding: 16px 0 50px; }
+  .menu-section        { padding: 8px 0 50px; }
+  .dine-text           { max-width: 100%; }
+  .features-grid       { font-size: 12px; line-height: 1.9; }
+  .feature-item        { margin-bottom: 6px; }
+  .btn-store           { width: 130px; height: 36px; font-size: 13px; }
+  .btn-store-small     { width: 130px; height: 28px; font-size: 13px; }
+}
+
+/* ================================================================
+   SMALL MOBILE ≤ 430px
+   DISABLE all scroll/entry animations — show content immediately
+   ================================================================ */
+@media (max-width: 430px) {
+
+  /* --- Kill ALL animate-on-scroll opacity/transform gates --- */
+  .animate-on-scroll,
+  .animate-on-scroll.slide-up,
+  .animate-on-scroll.slide-left,
+  .animate-on-scroll.slide-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* --- Kill shop-card spin-rise animation --- */
+  .new-shop,
+  .new-shop.animate-in {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+    perspective: none;
+    transform-style: flat;
+  }
+
+  /* --- Kill menu-card slide animations --- */
+  .menu-card.slide-left-to-right,
+  .menu-card.slide-right-to-left {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .menu-card.animate-in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* --- Kill floating decor animations (already hidden, but be safe) --- */
+  .float-wrapper,
+  .float-image,
+  .float-shadow {
+    animation: none !important;
+  }
+
+  /* --- Hide decor on small mobile --- */
+  .left-decor,
+  .right-decor { display: none !important; }
+}
+
+/* ── iPhone 14 / large phones 376–430px ── */
+@media (min-width: 376px) and (max-width: 430px) {
+  :root                { --nav-h: 190px; }
+  .banner-overlay      { bottom: 5%; left: 14px; }
+  .banner-title        { font-size: 22px; }
+  .banner-subtitle     { font-size: 15px; }
+  .section-heading     { font-size: 20px; margin-bottom: 16px; }
+  .section-heading-lg  { font-size: 24px; }
+  .section-desc        { font-size: 14px; padding: 0 8px; }
+  .menu-desc           { font-size: 13px; padding: 0 8px; }
+  .section-text        { font-size: 13px; }
+  .menu-card           { margin: 0 auto; max-width: 100%; width: 100%; }
+  .card-title          { font-size: 17px; }
+  .card-desc           { font-size: 13px; }
+  .shop-card           { padding: 18px 14px; min-height: 360px; }
+  .brand-circle        { width: 26px; height: 26px; }
+  .brands-count        { font-size: 12px; }
+  .menu-title          { font-size: 17px; }
+  .shop-placeholder    { font-size: 26px; }
+  .dine-section        { padding: 28px 0 14px; }
+  .dine-text           { max-width: 100%; padding: 0 4px; }
+  .explore-section     { padding: 14px 0 44px; }
+  .menu-section        { padding: 6px 0 44px; }
+  .features-grid       { font-size: 11px; line-height: 1.85; }
+  .feature-item        { margin-bottom: 5px; }
+  .btn-store           { width: 120px; height: 34px; font-size: 13px; }
+  .btn-store-small     { width: 120px; height: 28px; font-size: 12px; }
+  .slide-right.animate-in { width: 100%; }
+}
+
+/* ── iPhone SE (3rd gen) 361–375px ── */
+@media (min-width: 361px) and (max-width: 375px) {
+  :root                { --nav-h: 195px; }
+  .banner-overlay      { bottom: 5%; left: 12px; }
+  .banner-title        { font-size: 20px; }
+  .banner-subtitle     { font-size: 14px; }
+  .section-heading     { font-size: 19px; margin-bottom: 14px; }
+  .section-heading-lg  { font-size: 22px; margin-bottom: 16px; }
+  .section-desc        { font-size: 13px; padding: 0 6px; }
+  .menu-desc           { font-size: 12px; padding: 0 6px; }
+  .section-text        { font-size: 12px; margin-bottom: 18px; }
+  .menu-card           { margin: 0 auto; }
+  .card-title          { font-size: 16px; }
+  .card-desc           { font-size: 12px; }
+  .shop-card           { padding: 16px 12px; min-height: 340px; }
+  .logo-wrapper        { height: 90px; }
+  .shop-logo           { max-width: 130px; max-height: 90px; }
+  .brand-circle        { width: 24px; height: 24px; }
+  .brands-count        { font-size: 12px; margin-left: 6px; }
+  .menu-title          { font-size: 16px; }
+  .shop-placeholder    { font-size: 24px; }
+  .dine-section        { padding: 24px 0 12px; }
+  .dine-text           { max-width: 100%; padding: 0; }
+  .explore-section     { padding: 12px 0 40px; }
+  .menu-section        { padding: 6px 0 40px; }
+  .features-grid       { font-size: 11px; line-height: 1.8; }
+  .feature-icon        { width: 13px; height: 13px; margin-right: 5px; }
+  .feature-item        { margin-bottom: 4px; }
+  .btn-store           { width: 115px; height: 32px; font-size: 12px; }
+  .btn-store-small     { width: 115px; height: 26px; font-size: 11px; }
+  .slide-right.animate-in { width: 100%; }
+}
+
+/* ── iPhone SE gen 1 / very small 321–360px ── */
+@media (min-width: 321px) and (max-width: 360px) {
+  :root                { --nav-h: 200px; }
+  .banner-overlay      { bottom: 4%; left: 10px; }
+  .banner-title        { font-size: 18px; }
+  .banner-subtitle     { font-size: 12px; }
+  .section-heading     { font-size: 18px; margin-bottom: 12px; }
+  .section-heading-lg  { font-size: 20px; margin-bottom: 14px; }
+  .section-desc        { font-size: 12px; padding: 0 4px; }
+  .menu-desc           { font-size: 11px; padding: 0 4px; }
+  .section-text        { font-size: 12px; margin-bottom: 14px; }
+  .menu-card           { margin: 0 auto; max-width: 100%; width: 100%; height: 360px; }
+  .card-title          { font-size: 15px; }
+  .card-desc           { font-size: 12px; }
+  .shop-card           { padding: 14px 10px; min-height: 320px; border-radius: 18px; }
+  .logo-wrapper        { height: 80px; }
+  .shop-logo           { max-width: 110px; max-height: 80px; }
+  .brand-circle        { width: 22px; height: 22px; margin-left: -6px; }
+  .brands-count        { font-size: 11px; margin-left: 6px; }
+  .menu-title          { font-size: 15px; }
+  .shop-placeholder    { font-size: 22px; }
+  .dine-section        { padding: 20px 0 10px; }
+  .dine-text           { max-width: 100%; padding: 0; }
+  .explore-section     { padding: 10px 0 36px; }
+  .menu-section        { padding: 4px 0 36px; }
+  .features-grid       { font-size: 10px; line-height: 1.75; }
+  .feature-icon        { width: 12px; height: 12px; margin-right: 4px; }
+  .feature-item        { margin-bottom: 3px; }
+  .btn-store           { width: 110px; height: 30px; font-size: 11px; }
+  .btn-store-small     { width: 110px; height: 24px; font-size: 11px; }
+  .slide-right.animate-in { width: 100%; }
+}
+
+/* ── Very small ≤ 320px (original iPhone SE 1st gen) ── */
+@media (max-width: 320px) {
+  :root                { --nav-h: 205px; }
+  .banner-overlay      { bottom: 3%; left: 8px; }
+  .banner-title        { font-size: 16px; }
+  .banner-subtitle     { font-size: 11px; }
+  .section-heading     { font-size: 16px; margin-bottom: 10px; }
+  .section-heading-lg  { font-size: 18px; margin-bottom: 12px; }
+  .section-desc        { font-size: 11px; padding: 0 2px; }
+  .menu-desc           { font-size: 11px; padding: 0 2px; }
+  .section-text        { font-size: 11px; width: 100% !important; max-width: 100% !important; margin-bottom: 12px; }
+  .menu-card           { margin: 0 auto; max-width: 100%; width: 100%; height: 340px; }
+  .card-title          { font-size: 14px; }
+  .card-desc           { font-size: 11px; }
+  .shop-card           { padding: 12px 8px; min-height: 300px; border-radius: 16px; }
+  .logo-wrapper        { height: 70px; }
+  .shop-logo           { max-width: 100px; max-height: 70px; }
+  .brand-circle        { width: 20px; height: 20px; margin-left: -5px; }
+  .brands-count        { font-size: 10px; margin-left: 5px; }
+  .menu-title          { font-size: 14px; }
+  .shop-placeholder    { font-size: 20px; }
+  .dine-section        { padding: 16px 0 8px; }
+  .dine-text           { max-width: 100%; padding: 0; }
+  .explore-section     { padding: 8px 0 30px; }
+  .menu-section        { padding: 4px 0 30px; }
+  .features-grid       { font-size: 10px; line-height: 1.7; }
+  .feature-icon        { width: 11px; height: 11px; margin-right: 4px; }
+  .feature-item        { margin-bottom: 2px; }
+  .btn-store           { width: 100px; height: 28px; font-size: 11px; }
+  .btn-store-small     { width: 100px; height: 24px; font-size: 10px; }
+  .slide-right.animate-in { width: 100%; }
+}
+
+/* ── Landscape phones ── */
+@media (max-height: 500px) and (orientation: landscape) {
+  :root                { --nav-h: 60px; }
+  .banner-section      { min-height: 280px; }
+  .banner-title        { font-size: 0px; }
+  .banner-subtitle     { font-size: 14px; }
+  .banner-overlay      { bottom: 10%; left: 4%; }
+  .section-heading-lg  { font-size: 24px; }
+  .section-desc        { font-size: 14px; }
+  .menu-desc           { font-size: 13px; }
+  .dine-section        { padding: 24px 0 12px; }
+}
+
+/* ── Retina / High-DPI ── */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .banner-title        { font-weight: 500; }
+  .banner-subtitle     { font-weight: 400; }
+  .banner-img          { image-rendering: -webkit-optimize-contrast; }
+}
+
+/* ── Touch devices ── */
+@media (hover: none) and (pointer: coarse) {
+  .banner-title        { font-weight: 600; }
+  .banner-subtitle     { font-weight: 400; }
+  .banner-overlay      { bottom: 12%; }
+}
+
+/* ================================================================
+   FIX — Centers dine image on tablet + mobile and fixes slide-right animation
+   ================================================================ */
+
+@media (max-width: 992px) {
+  .dine-image {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .dine-image img {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .slide-right {
+    transform: none !important;
+  }
+}

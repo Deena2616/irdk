@@ -1,0 +1,113 @@
+/* --- Global Font Styling --- */
+.irdkl-typography {
+  margin: 0;
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --hero-bg: rgba(0, 0, 0, 0.6);
+  --card-shadow: 8px 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 1200px) {
+  .contact-page .container { max-width: 1241px; }
+}
+
+/* --- Sections --- */
+.contact-hero {
+  min-height: 105vh;
+  background: url('../assets/bannermall.png') center/cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-text {
+  display: inline-block;
+  padding: 9.5rem 2.5rem 1.75rem;
+  background: var(--hero-bg);
+  text-align: center;
+}
+
+.heading-container { margin-top: 5rem; }
+
+/* --- Components --- */
+.irdkl-card {
+  max-width: 760px;
+  box-shadow: var(--card-shadow);
+  width: 100%; /* Ensure it doesn't overflow */
+}
+
+.irdkl-card .card-body { padding: 0.5rem; }
+
+.irdkl-card-img {
+  width: 290px;
+  height: auto; /* Changed from fixed height for better aspect ratio */
+  border-radius: 8px;
+}
+
+/* Map Fitting Logic */
+.map-wrapper {
+  width: 100%;
+  display: flex;
+}
+
+.custom-map {
+  width: 100%;
+  height: 100%;
+  min-height: 596px;
+  max-width: 570px;
+  margin-left: auto; 
+  border-radius: 8px;
+  display: block;
+  border: 1px solid black;
+}
+
+/* This was causing the alignment issues on mobile */
+.web1 {
+  margin-left: 55px;
+}
+
+/* --- Typography --- */
+.contact-page .hero-text h1 { font-size: 41px; }
+.contact-page .hero-text p { font-size: 20px; margin-top: 1.75rem;}
+.contact-page h2.h3 { font-size: 35px; width: 580px; max-width: 100%; } /* Added max-width */
+.cont1 { font-size: 25px; }
+.cont2 { font-size: 19px; }
+.cont3 { font-size: 15px; }
+.fontlocation { font-size: 18px; }
+
+/* --- Responsiveness --- */
+@media (max-width: 1199px) {
+  .contact-page h2.h3 { width: 100%; font-size: 31px; }
+  .custom-map { 
+    margin-left: 0; 
+    max-width: 100%; 
+    height: auto;
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .contact-hero { min-height: 40vh; align-items: center; }
+  .hero-text { width: 100%; padding: 2rem; }
+  .heading-container { margin-top: 2rem; text-align: center; }
+  .custom-map { margin: 2rem auto 0; min-height: 300px; }
+  .irdkl-card-img { width: 100%; max-width: 290px; height: auto; margin: 1rem auto; display: block; }
+  
+  .contact-page .hero-text h1 { font-size: 28px; }
+  .contact-page h2.h3 { font-size: 26px; text-align: center; width: 100%; }
+  .fontlocation { font-size: 18px; }
+  
+  /* Reset margin on mobile so icons align properly */
+  .web1 { margin-left: 0; }
+}
+
+@media (max-width: 576px) {
+  .contact-page .hero-text h1 { font-size: 22px; }
+  .fontlocation { font-size: 16px; margin-top: 24px;}
+  .irdkl-card-img { width: 100%; }
+  /* Stack the location info more tightly */
+  .d-flex.align-items-center { flex-direction: row;}
+}

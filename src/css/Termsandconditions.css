@@ -1,0 +1,239 @@
+/* Termsandconditions.css */
+
+
+
+.terms-page {
+
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
+  background-color: #FFFFFF;
+
+  min-height: 100vh;
+
+}
+
+
+
+/* Banner */
+
+.terms-banner-section {
+
+  position: relative;
+
+  width: 100%;
+
+  height: 220px;
+
+  background: url('../assets/termsandconditionbanner.png') center/cover no-repeat;
+
+  margin: 0;
+
+}
+
+
+
+.terms-banner-content {
+
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+}
+
+
+
+.terms-banner-title {
+
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
+  font-weight: 400;
+
+  font-style: normal;
+
+  font-size: 18px;
+
+  line-height: 1;
+
+  letter-spacing: 0;
+
+  color: #5E8D25;
+
+  text-align: center;
+
+  margin: 0;
+
+  padding: 0 30px;
+
+  
+
+  /* Force single line - no wrapping */
+
+  white-space: nowrap;
+
+  
+
+  /* Strong black outline + shadow for visibility on dark background */
+
+  text-shadow: 
+
+    3px 3px 0 #000,
+
+    -3px -3px 0 #000,
+
+    3px -3px 0 #000,
+
+    -3px 3px 0 #000,
+
+    5px 5px 15px #000;
+
+  
+
+  /* Safety net for very small screens */
+
+  max-width: 90vw;
+
+}
+
+
+
+/* Content */
+
+.terms-content-section {
+
+  background-color: #FFFFFF;
+
+}
+
+
+
+.terms-container {
+
+  max-width: 1000px;
+
+  width: 100%;
+
+  margin: 0 auto;
+
+  padding: 0 15px;
+
+}
+
+
+
+.terms-paragraph {
+
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
+  font-weight: 400;
+
+  font-style: normal;
+
+  font-size: 9px;
+
+  line-height: 1;
+
+  letter-spacing: 0;
+
+  color: #000000;
+
+  text-align: justify;
+
+  word-wrap: break-word;
+
+  margin-bottom: 1rem;
+
+}
+
+
+
+.terms-spacing {
+
+  margin-top: 20px !important;
+
+}
+
+
+
+.terms-spacing-large {
+
+  margin-top: 30px !important;
+
+}
+
+
+
+.terms-link {
+
+  color: #0066CC;
+
+  word-break: break-all;
+
+  text-decoration: none;
+
+}
+
+
+
+.terms-link:hover {
+
+  text-decoration: underline !important;
+
+}
+
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+  .terms-paragraph {
+
+    font-size: 10px;
+
+    text-align: left;
+
+  }
+
+  
+
+  .terms-banner-section {
+
+    height: 180px;
+
+  }
+
+  
+
+  .terms-banner-title {
+
+    font-size: 38px;
+
+  }
+
+}
+
+
+
+@media (max-width: 576px) {
+
+  .terms-banner-section {
+
+    height: 160px;
+
+  }
+
+  
+
+  .terms-banner-title {
+
+    font-size: 8px;
+
+    padding: 0 20px;
+
+  }
+
+}

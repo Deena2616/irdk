@@ -1,0 +1,160 @@
+@import url('https://fonts.cdnfonts.com/css/palatino-linotype');
+
+:root {
+  --services-primary: #5D8D25;
+  --services-black: #000000;
+  --services-white: #FFFFFF;
+  --services-gray: #808080;
+  --services-gold: #d8b15a;
+}
+
+.services-section {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  padding-bottom: 3rem;
+  overflow-x: hidden;
+}
+
+/* ========== FIRST SECTION STYLES ========== */
+.services-first-section {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  background: #fff;
+}
+
+.services-main-heading {
+  font-size: 41px;
+  line-height: 1.2;
+}
+
+.services-here-text { color: var(--services-primary); }
+.services-serve-text { color: var(--services-black); }
+
+.services-subheading {
+  font-size: 34px;
+  color: var(--services-black);
+}
+
+.services-description {
+  font-size: 20px;
+  color: var(--services-black);
+  line-height: 1.5;
+}
+
+.services-badge-number {
+  font-size: 22px;
+  font-weight: 700;
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--services-white);
+  box-shadow: 0 6px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+/* ========== SECOND SECTION - CARDS ========== */
+.services-cards-section {
+  margin-top: 1rem;
+}
+
+.services-card {
+  background: var(--services-white);
+  width: 100%;
+  max-width: 280px;
+  /* padding: 1rem 0.8rem 0.8rem 0.8rem;  */
+  overflow: visible;
+  border-top: 1px solid var(--services-gold) !important;
+  border-left: 1px solid var(--services-gold) !important;
+  box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.2) !important;
+  position: relative; /* Essential for absolute child */
+}
+
+/* PERFECT CENTERING LOGIC */
+.services-icon-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+}
+
+.services-icon-circle {
+  width: 100%;
+  height: 100%;
+  background-color: var(--services-primary);
+  color: var(--services-white);
+  font-size: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+.services-card-title {
+  font-size: 20px;
+  color: var(--services-black);
+  margin-top: 1.5rem; /* Room for floating icon */
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+/* INFO ALIGNMENT */
+.services-card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.services-info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.services-mini-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.location-icon-black { background-color: #fff; }
+
+.services-location, .services-action {
+  font-size: 14px;
+  color: var(--services-gray);
+  white-space: nowrap;
+}
+
+.services-icon-pin { color: #000; font-size: 12px; }
+.services-icon-phone { color: #fff; font-size: 12px; }
+
+.services-phone-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 991px) {
+  .services-main-heading { font-size: 34px; }
+  .services-subheading { font-size: 28px; }
+}
+
+@media (max-width: 767px) {
+  .services-card {
+    max-width: 300px; /* Slightly wider for mobile comfort */
+  }
+  .services-main-heading { font-size: 30px; }
+}
+.service-height{
+  max-height: 464px;
+}

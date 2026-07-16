@@ -1,0 +1,333 @@
+/* Header.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Palatino+Linotype&display=swap');
+
+:root {
+  --header-red: #d32f2f;
+  --header-dark: #1a1a1a;
+  --header-text-grey: #666;
+  --active-green: #2E8D25;
+}
+
+/* Clock rotation animation */
+@keyframes rotateClock {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fa-clock {
+  animation: rotateClock 2s linear infinite;
+}
+
+/* Social links pulse animation */
+@keyframes socialPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.header-social-link:nth-child(1) {
+  animation: socialPulse 2s ease-in-out infinite;
+}
+
+.header-social-link:nth-child(2) {
+  animation: socialPulse 2s ease-in-out infinite 0.5s;
+}
+
+.header-social-link:nth-child(3) {
+  animation: socialPulse 2s ease-in-out infinite 1s;
+}
+
+.header-social-link:nth-child(4) {
+  animation: socialPulse 2s ease-in-out infinite 1.5s;
+}
+
+.header-master-container {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  width: 100%;
+  z-index: 1050;
+}
+
+/* --- Top Bar Styling --- */
+.header-top-bar {
+  font-size: 13px;
+  color: #000;
+  min-height: 45px;
+  background-color: #B1CBB2;
+}
+
+.header-top-row {
+  padding: 10px 15px;
+}
+
+.header-social-link {
+  transition: color 0.3s ease;
+  font-size: 16px;
+}
+
+.header-social-link:hover {
+  color: #fff !important;
+}
+
+.header-hours-text {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+}
+
+.header-action-btn {
+  font-size: 14px;
+  padding: 5px 12px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  border: none !important;
+  outline: none !important;
+}
+
+.header-action-btn:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.header-brand-logo {
+  height: 50px;
+}
+
+/* --- Navigation Styling --- */
+.header-nav-section {
+  padding: 15px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.header-nav-link {
+  color: #222 !important;
+  font-size: 14px;
+  margin: 0;
+  padding: 5px 10px !important;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.header-nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  transition: width 0.5s ease;
+}
+
+.header-nav-link:hover::after {
+  width: 100%;
+}
+
+.header-menu-list {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+
+/* --- ACTIVE STATE COLOR --- */
+.header-nav-link.active {
+  color: #ffffff !important;
+  border-bottom-color: transparent;
+  background-color: #9cc298 !important;
+  border-radius: 5px;
+  padding: 5px 10px !important;
+  box-shadow: 0.44px 0.44px 0.63px -1px #00000042,
+              -1px -1px 1px 0px #0000003B inset,
+              1px 1px 1px 0px #FFFFFFC2 inset;
+}
+
+.header-nav-link.active::after,
+.header-nav-link.dropdown-toggle::after,
+.header-nav-link.dropdown-toggle:hover::after {
+  display: none;
+}
+
+/* --- Dropdown Styling (Desktop hover) --- */
+.header-dropdown-menu {
+  margin-top: 12px;
+  padding: 10px 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  display: block; /* Keep display:block so transition works */
+}
+
+.header-menu-item.dropdown:hover .header-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.header-menu-item.dropdown .header-nav-link::after {
+  display: none;
+}
+
+/* Arrow Swap Logic on Desktop Hover */
+.header-menu-item.dropdown:hover .entertainment-arrow-icon::before {
+  content: "\f078";
+}
+
+/* When hovering over dropdown, apply same background as active state to the entertainment link */
+.header-menu-item.dropdown:hover .header-nav-link {
+  background-color: #9cc298 !important;
+  color: #ffffff !important;
+  border-radius: 5px;
+  padding: 5px 10px !important;
+  box-shadow: 0.44px 0.44px 0.63px -1px #00000042,
+              -1px -1px 1px 0px #0000003B inset,
+              1px 1px 1px 0px #FFFFFFC2 inset;
+}
+
+.header-dropdown-item {
+  color: #333;
+  font-size: 13px;
+  padding: 8px 20px;
+  position: relative;
+}
+
+.header-dropdown-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  width: 0;
+  height: 2px;
+  background-color: #000;
+  transition: width 0.5s ease;
+}
+
+.header-dropdown-item:hover::after {
+  width: calc(100% - 40px);
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
+@media (max-width: 991.98px) {
+  .header-top-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .header-dropdown-item {
+    text-align: center;
+  }
+
+  .header-socials-col,
+  .header-actions-col {
+    justify-content: center !important;
+    display: flex !important;
+  }
+
+  .header-hours-wrapper {
+    width: 100%;
+    justify-content: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+  }
+
+  .header-collapse-wrapper {
+    background-color: #f9f9f9;
+    padding: 20px 0;
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+  }
+
+  .header-menu-list {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-menu-item {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+
+  .header-nav-link {
+    padding: 15px 10px !important;
+    display: block;
+    width: 100%;
+  }
+
+  /* Entertainment toggle alignment on mobile */
+  .header-nav-link.d-flex {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Mobile dropdown: hidden by default, shown when .show is added via React */
+  .header-dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    box-shadow: none !important;
+    width: 100%;
+    background-color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    margin-top: 0;
+  }
+
+  /* When React adds .show class, expand the dropdown */
+  .header-dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    max-height: 300px;
+  }
+
+  /* Disable desktop hover effect on mobile */
+  .header-menu-item.dropdown:hover .header-dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* But keep it open if .show is applied */
+  .header-menu-item.dropdown .header-dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* When dropdown is open on mobile, apply same background as active state to the entertainment link */
+  .header-menu-item.dropdown.show .header-nav-link {
+    background-color: #9cc298 !important;
+    color: #ffffff !important;
+    border-radius: 5px;
+    padding: 15px 10px !important;
+    box-shadow: 0.44px 0.44px 0.63px -1px #00000042,
+                -1px -1px 1px 0px #0000003B inset,
+                1px 1px 1px 0px #FFFFFFC2 inset;
+  }
+}
+
+/* ===================================
+   RESPONSIVE - 1920px
+   =================================== */
+@media (min-width: 1920px) {
+  .header-top-bar { font-size: 1.3rem; }
+  .header-social-link { font-size: 1.5rem; }
+  .header-hours-text { font-size: 1.5rem; }
+  .header-action-btn { font-size: 1.5rem; }
+  .header-nav-link { font-size: 1.5rem; }
+  .header-dropdown-item { font-size: 1.5rem; }
+}

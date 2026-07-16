@@ -1,0 +1,324 @@
+/* ================================================================
+   MEMBERSHIP PAGE
+   DESKTOP  (≥993px): Side-by-side two columns, equal height
+   MOBILE   (<993px): Single column, all content stacked vertically
+                      Order: Title → Desc → Right Image → Cards Image
+   ================================================================ */
+
+.membership-page {
+  background-color: #fff;
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  overflow-x: hidden;
+}
+
+.membership-section {
+  padding: 40px 0 80px;
+}
+
+/* ── DESKTOP ROW ── */
+.membership-row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 40px;
+  width: 100%;
+  max-width: 1542px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ── LEFT COLUMN (desktop) ── */
+.membership-left {
+  flex: 0 0 50%;
+  max-width: 50%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.membership-title {
+  font-size: 41px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #000;
+  margin-bottom: 24px;
+ 
+}
+
+.membership-subtitle {
+  font-size: 41px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #000;
+  margin-bottom: 24px;
+}
+
+.membership-desc {
+  font-size: 22px;
+  line-height: 1.45;
+  color: #000;
+  margin-bottom: 36px;
+}
+
+.membership-cards-wrap {
+  margin-top: auto;
+  padding-bottom: 8px;
+}
+
+.membership-cards-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── RIGHT COLUMN (desktop) ── */
+.membership-right {
+  flex: 0 0 50%;
+  max-width: 50%;
+  min-width: 0;
+  position: relative;
+  border-radius: 16px;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.membership-right-img {
+  width: 100%;
+  height: 99%;
+  object-fit: fill;
+  object-position: center;
+  display: block;
+  border-radius: 16px;
+}
+
+/* ── Fade-in ── */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================================================================
+   BREAKPOINTS — Desktop scaling (sizes only)
+   ================================================================ */
+
+/* 4K */
+@media (min-width: 2560px) {
+  .membership-title,
+  .membership-subtitle { font-size: 62px; }
+  .membership-desc     { font-size: 28px; }
+  .membership-row      { gap: 60px; }
+  .membership-left     { padding-top: 30px; }
+}
+
+/* Large desktops 1440–2559 */
+@media (min-width: 1440px) and (max-width: 2559px) {
+  .membership-title,
+  .membership-subtitle { font-size: 50px; }
+  .membership-desc     { font-size: 24px; }
+  .membership-row      { gap: 50px; }
+}
+
+/* Standard desktops 1200–1439 */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .membership-title,
+  .membership-subtitle { font-size: 44px; }
+  .membership-desc     { font-size: 22px; }
+}
+
+/* Small desktops 993–1199 */
+@media (min-width: 993px) and (max-width: 1199px) {
+  .membership-row      { gap: 24px; }
+  .membership-title,
+  .membership-subtitle { font-size: 36px; }
+  .membership-desc     { font-size: 19px; }
+}
+
+/* ================================================================
+   MOBILE / TABLET — ALL screens < 993px
+   Single column layout:
+   Title → Subtitle → Description → VIP Image → Cards Image
+   ================================================================ */
+
+@media (max-width: 992px) {
+  .membership-section { padding: 36px 0 50px; }
+
+  /* Stack everything vertically */
+  .membership-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Left column: full width, natural flow */
+  .membership-left {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    padding-top: 0;
+    order: 1;
+  }
+
+  .membership-title {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .membership-subtitle {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .membership-desc {
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+
+  /* Cards image goes BELOW the VIP image */
+  .membership-cards-wrap {
+    margin-top: 0;
+    padding-bottom: 0;
+    order: 3;
+    width: 100%;
+    padding-top: 4px;   /* extra breathing room above cards */
+  }
+
+  .membership-cards-img {
+    padding-bottom: 15px;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+  }
+
+  /* VIP right image: full width, natural height, between desc and cards */
+  .membership-right {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    min-height: unset;
+    overflow: visible;
+    border-radius: 14px;
+    background: transparent;
+    margin-bottom: 28px;   /* gap between VIP image and cards image */
+    order: 2;
+  }
+
+  .membership-right-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 14px;
+  }
+}
+
+/* Tablet 769–992 */
+@media (min-width: 769px) and (max-width: 992px) {
+  .membership-title,
+  .membership-subtitle { font-size: 34px; }
+  .membership-desc     { font-size: 18px; }
+  .membership-right-img { border-radius: 16px; }
+}
+
+/* Large mobile 577–768 */
+@media (min-width: 577px) and (max-width: 768px) {
+  .membership-title,
+  .membership-subtitle { font-size: 28px; }
+  .membership-desc     { font-size: 16px; }
+}
+
+/* Mobile 431–576 */
+@media (min-width: 431px) and (max-width: 576px) {
+  .membership-section  { padding: 28px 0 40px; }
+  .membership-title,
+  .membership-subtitle { font-size: 26px; }
+  .membership-desc     { font-size: 15px; }
+  .membership-right    { margin-bottom: 16px; }
+}
+
+/* iPhone 14 376–430 */
+@media (min-width: 376px) and (max-width: 430px) {
+  .membership-section  { padding: 24px 0 36px; }
+  .membership-title,
+  .membership-subtitle { font-size: 24px; }
+  .membership-desc     { font-size: 14px; }
+  .membership-right    { margin-bottom: 14px; }
+}
+
+/* iPhone SE 321–375 */
+@media (min-width: 321px) and (max-width: 375px) {
+  .membership-section  { padding: 20px 0 32px; }
+  .membership-row      { gap: 0; }
+  .membership-title,
+  .membership-subtitle { font-size: 22px; margin-bottom: 4px; }
+  .membership-desc     { font-size: 13px; margin-bottom: 18px; line-height: 1.5; }
+  .membership-right    { margin-bottom: 14px; border-radius: 12px; }
+  .membership-right-img { border-radius: 12px; }
+  .membership-cards-img { border-radius: 12px; }
+}
+
+/* iPhone SE gen 1 / very small ≤320px */
+@media (max-width: 320px) {
+  .membership-section  { padding: 16px 0 28px; }
+  .membership-title,
+  .membership-subtitle { font-size: 20px; margin-bottom: 2px; }
+  .membership-desc     { font-size: 12px; margin-bottom: 16px; line-height: 1.5; }
+  .membership-right    { margin-bottom: 12px; border-radius: 10px; }
+  .membership-right-img { border-radius: 10px; }
+  .membership-cards-img { border-radius: 10px; }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .membership-section  { padding: 14px 0 20px; }
+  .membership-row {
+    flex-direction: row !important;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .membership-left {
+    flex: 0 0 52% !important;
+    max-width: 52% !important;
+    padding-top: 0;
+    order: 1;
+  }
+  .membership-right {
+    flex: 0 0 48% !important;
+    max-width: 48% !important;
+    order: 2;
+    margin-bottom: 0;
+    overflow: hidden;
+    height: auto;
+  }
+  .membership-right-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .membership-cards-wrap { order: unset; }
+  .membership-title,
+  .membership-subtitle   { font-size: 18px; text-align: left; }
+  .membership-desc       { font-size: 12px; text-align: left; }
+}
+
+/* Retina */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .membership-right-img { image-rendering: -webkit-optimize-contrast; }
+  .membership-cards-img { image-rendering: -webkit-optimize-contrast; }
+}

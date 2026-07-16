@@ -1,0 +1,241 @@
+/* ShopImageView Responsive Styles */
+
+/* Main container */
+.shop-image-view-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Image wrapper */
+.store-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Main image */
+.store-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.3s ease;
+}
+
+/* Back button container */
+.back-button-container {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+}
+
+/* Back button styling */
+.back-button {
+  background-color: #5E8D25 !important;
+  border: none !important;
+  border-radius: 50% !important;
+  width: 50px !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(94, 141, 37, 0.3) !important;
+}
+
+.back-button:hover {
+  background-color: #4a7019 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(94, 141, 37, 0.4) !important;
+}
+
+.back-button svg {
+  width: 20px !important;
+  height: 20px !important;
+  fill: white !important;
+}
+
+/* Mobile Devices (≤576px) */
+@media (max-width: 576px) {
+  .store-image {
+    height: 100vh !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+  
+  .back-button-container {
+    top: 0.5rem !important;
+    left: 0.5rem !important;
+  }
+  
+  .back-button {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .back-button svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+
+/* Small Devices (577px-768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .store-image {
+    height: 100vh !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+  
+  .back-button-container {
+    top: 0.75rem !important;
+    left: 0.75rem !important;
+  }
+  
+  .back-button {
+    width: 45px !important;
+    height: 45px !important;
+  }
+  
+  .back-button svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+}
+
+/* Medium Devices (769px-992px) - Tablets */
+@media (min-width: 769px) and (max-width: 992px) {
+  .store-image {
+    height: 100vh !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  
+  .back-button-container {
+    top: 1rem !important;
+    left: 1rem !important;
+  }
+  
+  .back-button {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  
+  .back-button svg {
+    width: 19px !important;
+    height: 19px !important;
+  }
+}
+
+/* Large Devices (993px-1200px) - Desktop */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .store-image {
+    height: 100vh !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  
+  .back-button-container {
+    top: 1rem !important;
+    left: 1rem !important;
+  }
+  
+  .back-button {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .back-button svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+/* Extra Large Devices (≥1201px) - Large Desktop */
+@media (min-width: 1201px) {
+  .store-image {
+    height: 100vh !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  
+  .back-button-container {
+    top: 1.5rem !important;
+    left: 1.5rem !important;
+  }
+  
+  .back-button {
+    width: 55px !important;
+    height: 55px !important;
+  }
+  
+  .back-button svg {
+    width: 22px !important;
+    height: 22px !important;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .store-image {
+    height: 100vh !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  
+  .back-button-container {
+    top: 0.5rem !important;
+    left: 0.5rem !important;
+  }
+  
+  .back-button {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  
+  .back-button svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .back-button svg {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Loading states */
+.store-image.loading {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.store-image.loaded {
+  opacity: 1;
+}
+
+/* Accessibility */
+.back-button:focus {
+  outline: 3px solid #5E8D25 !important;
+  outline-offset: 2px !important;
+}
+
+/* Print styles */
+@media print {
+  .back-button-container {
+    display: none !important;
+  }
+  
+  .store-image {
+    height: auto !important;
+    max-height: 100vh !important;
+  }
+}
