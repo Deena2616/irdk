@@ -134,7 +134,7 @@ const Header = () => {
                 <NavLink className="header-nav-link nav-link text-uppercase" to="/membership" onClick={closeMenu}>Membership</NavLink>
               </li>
               <li className="header-menu-item nav-item">
-                <NavLink className="header-nav-link nav-link text-uppercase" to="/tsr-hall" onClick={closeMenu}>TSR Hall</NavLink>
+                <NavLink className="header-nav-link nav-link text-uppercase" href="https://deena2616.github.io/irdk/" onClick={closeMenu}>TSR Hall</NavLink>
               </li>
               <li className="header-menu-item nav-item">
                 <NavLink className="header-nav-link nav-link text-uppercase" to="/events" onClick={closeMenu}>Events</NavLink>
