@@ -29,7 +29,13 @@ import Samsung from "./pages/Samsung";
 import CAndK from "./pages/C&K";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+
+import {
+  HashRouter,
+  Outlet,
+  Route,
+  Routes,
+} from "react-router-dom";
 
 function AppLayout() {
   return (
@@ -43,7 +49,7 @@ function AppLayout() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Home />} />
@@ -79,7 +85,7 @@ function App() {
           <Route path="/ck" element={<CAndK />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
